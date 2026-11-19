@@ -1,3 +1,4 @@
+import { asset } from "./asset";
 // Everything personal about the site lives here. Edit these values to make it yours.
 export const site = {
   name: "Thunderhead Collective",
@@ -17,7 +18,7 @@ export const site = {
       "Thunderhead Collective is a sport and documentary film collective based in Singapore, crafting cinematic stories and visual experiences. We make commercials, brand films and music videos that connect with people through emotion and craft.",
       "Currently available for both short- and long-term collaborations.",
     ],
-    portrait: "/media/portrait.jpg",
+    portrait: asset("/media/portrait.jpg"),
     services: [
       "Sport films",
       "Documentaries",

@@ -1,3 +1,4 @@
+import { asset } from "./asset";
 import type { Category } from "./site";
 
 export type Project = {
@@ -21,9 +22,9 @@ export type Project = {
 };
 
 const media = (slug: string) => ({
-  poster: `/media/${slug}.jpg`,
-  preview: `/media/${slug}-loop.mp4`,
-  video: `/media/${slug}.mp4`,
+  poster: asset(`/media/${slug}.jpg`),
+  preview: asset(`/media/${slug}-loop.mp4`),
+  video: asset(`/media/${slug}.mp4`),
 });
 
 type Base = Omit<Project, "poster" | "preview" | "video">;

@@ -1,3 +1,5 @@
+import { asset } from "./asset";
+
 // Copy and media for the /story page. Every line here is placeholder — rewrite it in your own voice.
 
 export type Chapter = {
@@ -11,8 +13,8 @@ export type Chapter = {
 
 export const story = {
   hero: {
-    video: "/media/fight-film-loop.mp4",
-    poster: "/media/fight-film.jpg",
+    video: asset("/media/fight-film-loop.mp4"),
+    poster: asset("/media/fight-film.jpg"),
     statement: "Every frame is a decision. We make each one for the story.",
   },
 
@@ -33,7 +35,7 @@ export const story = {
         "Most of our prep happens before a camera is unpacked. We scout at the hour we'll shoot, study how the light falls, and build the plan around it rather than against it.",
         "On the day that means fewer lights, faster setups and more time for the people in front of the lens.",
       ],
-      image: "/media/allianz-cyber-protect.jpg",
+      image: asset("/media/allianz-cyber-protect.jpg"),
       side: "right",
       ctas: [
         { label: "View work", href: "/work-grid" },
@@ -47,7 +49,7 @@ export const story = {
         "We like working as a tight team that trusts each other. Everyone knows the intention behind a shot, so decisions on set are quick and the energy stays on the work.",
         "Whether it's a two-person documentary or a full commercial crew, we bring the same calm, prepared approach.",
       ],
-      image: "/media/bts-crew.jpg",
+      image: asset("/media/bts-crew.jpg"),
       side: "left",
     },
   ] satisfies Chapter[],
@@ -69,14 +71,14 @@ export const story = {
       "A few times a year we run hands-on weekend workshops for young people who want to make films but have never had access to equipment.",
       "We cover the basics of camera, light and sound, then everyone leaves having shot and cut a short piece of their own.",
     ],
-    image: "/media/kensington.jpg",
+    image: asset("/media/kensington.jpg"),
     side: "right",
     ctas: [{ label: "Get in touch", href: "mailto:" }],
   } satisfies Chapter,
 
   closing: {
-    video: "/media/southern-invasion-loop.mp4",
-    poster: "/media/southern-invasion.jpg",
+    video: asset("/media/southern-invasion-loop.mp4"),
+    poster: asset("/media/southern-invasion.jpg"),
     statement: "Let's make something worth watching",
     ctas: [
       { label: "View work", href: "/work-grid" },

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { asset } from "@/lib/asset";
 import { site } from "@/lib/site";
 import Clock from "./Clock";
 import Menu from "./Menu";
@@ -25,7 +26,7 @@ export default function Header() {
       {/* The mark sits outside the header so the header's colour-inverting blend never recolours it */}
       <Link href="/" className="brandmark" aria-label={`${site.name} — home`}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/media/brand/logo-sm.png" alt="" width={44} height={45} />
+        <img src={asset("/media/brand/logo-sm.png")} alt="" width={44} height={45} />
       </Link>
       <header className="header">
         <Link href="/" className="header__logo sans">

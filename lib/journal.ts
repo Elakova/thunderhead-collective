@@ -1,6 +1,8 @@
 // Journal (blog) posts. Placeholder writing — replace with your own posts.
 // Add a post by adding an object below and a cover image at /public/media/journal/<slug>.jpg.
 
+import { asset } from "./asset";
+
 export const journalCategories = ["Behind the Scenes", "Process", "Gear", "Locations", "Notes"] as const;
 export type JournalCategory = (typeof journalCategories)[number];
 
@@ -21,7 +23,7 @@ export type Post = {
   body: Block[];
 };
 
-const cover = (slug: string) => `/media/journal/${slug}.jpg`;
+const cover = (slug: string) => asset(`/media/journal/${slug}.jpg`);
 
 const posts: Omit<Post, "cover">[] = [
   {
@@ -36,7 +38,7 @@ const posts: Omit<Post, "cover">[] = [
       { type: "h2", text: "Planning for the unplannable" },
       { type: "p", text: "Instead of a fixed shot list we built three versions of every day — calm, rough and grounded — so the crew always knew the next move when conditions changed." },
       { type: "quote", text: "The best scene in the film happened while we were waiting for the light to come back." },
-      { type: "img", src: "/media/bts-crew.jpg", caption: "Behind the scenes on an interview shoot." },
+      { type: "img", src: asset("/media/bts-crew.jpg"), caption: "Behind the scenes on an interview shoot." },
       { type: "p", text: "We shot almost everything handheld on a single zoom, which kept us light enough to move with the family instead of asking them to wait for us." },
       { type: "h2", text: "What we'd do again" },
       { type: "p", text: "Spend the first day without a camera. The trust we built on that day showed up in every frame afterwards." },
@@ -119,7 +121,7 @@ const posts: Omit<Post, "cover">[] = [
     excerpt: "Three days walking the medina before we shot a single frame, and why it was the best time we spent.",
     body: [
       { type: "p", text: "We spent the scout meeting the smiths, learning their routines and finding where the light entered each workshop through the day." },
-      { type: "img", src: "/media/bai-world-kitchen.jpg", caption: "A frame from Bai World Kitchen." },
+      { type: "img", src: asset("/media/bai-world-kitchen.jpg"), caption: "A frame from Bai World Kitchen." },
       { type: "p", text: "By the time we filmed, the schedule followed the sun rather than a call sheet." },
     ],
   },

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { asset } from "@/lib/asset";
 import { site } from "@/lib/site";
 import BackToTop from "./BackToTop";
 
@@ -18,7 +19,7 @@ export default function Footer() {
       <div className="footer__top">
         <div className="footer__brand">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/media/brand/logo.png" alt={`${site.name} logo`} className="footer__logo" loading="lazy" />
+          <img src={asset("/media/brand/logo.png")} alt={`${site.name} logo`} className="footer__logo" loading="lazy" />
           <h2 className="footer__role sans">
           {site.role.map((line) => (
             <span key={line}>{line}</span>
