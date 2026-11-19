@@ -6,6 +6,7 @@ const links = [
   { label: "work", href: "/work-grid" },
   { label: "story", href: "/story" },
   { label: "journal", href: "/journal" },
+  { label: "apparel", href: "/apparel" },
   { label: "about", href: "/about" },
   { label: "contact", href: `mailto:${site.email}` },
 ];
