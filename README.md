@@ -32,7 +32,7 @@ npm run build      # static site in ./out
   - `<slug>-loop.mp4`: an 8-second silent loop for the home reel and the work grid.
   - `<slug>.jpg`: the still shown before the video loads, and behind the credits.
 
-  Your original exports live outside this project, in `~/Movies/Thunderhead Masters/`, so they're never pushed. Every file in this repository is kept at or under 25 MB. To add a film, export the three files from your master (change `-ss 12` to where the loop should start; for long films, lower `-b:v` until the full film is under 25 MB):
+  Your original exports live outside this project, in `~/Movies/Thunderhead Masters/`, so they're never pushed. Keep every file under 50 MB (GitHub warns above 50 MB and rejects files over 100 MB). If a master is already a web-friendly H.264/AAC MP4 under 50 MB, use it as it is, without re-encoding, which keeps its full quality: `ffmpeg -i "$M" -map 0:v:0 -map 0:a:0 -c copy -movflags +faststart public/media/my-film.mp4`. Otherwise export the three files like this (change `-ss 12` to where the loop should start, and set `-b:v` so the full film stays under 50 MB):
   ```bash
   M="$HOME/Movies/Thunderhead Masters/MyFilm.mp4"
   ffmpeg -i "$M" -vf "scale=1920:1080:flags=lanczos" -c:v libx264 -preset slow -b:v 900k -pass 1 -an -f null /dev/null
