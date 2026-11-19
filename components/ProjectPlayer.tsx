@@ -24,8 +24,17 @@ export default function ProjectPlayer({ project: p }: { project: Project }) {
   const [duration, setDuration] = useState(0);
   const [hover, setHover] = useState(false);
   const [credits, setCredits] = useState(false);
+  const [vimeoOn, setVimeoOn] = useState(false); // full film playing from Vimeo
+  const vimeoSrc = p.vimeo
+    ? `https://player.vimeo.com/video/${p.vimeo}?autoplay=1&title=0&byline=0&portrait=0&dnt=1&color=f5d000`
+    : null;
 
   const toggle = () => {
+    // Vimeo films open the full-HD player; the local loop behind the title is only a preview
+    if (vimeoSrc) {
+      setVimeoOn(true);
+      return;
+    }
     const v = video.current;
     if (!v) return;
     if (v.paused) {
@@ -36,7 +45,10 @@ export default function ProjectPlayer({ project: p }: { project: Project }) {
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setCredits(false);
+      if (e.key === "Escape") {
+        setCredits(false);
+        setVimeoOn(false);
+      }
       if (e.key === " " && !credits && document.activeElement === document.body) {
         e.preventDefault();
         toggle();
@@ -81,16 +93,19 @@ export default function ProjectPlayer({ project: p }: { project: Project }) {
   };
 
   return (
-    <section ref={root} className={`player${playing ? " is-playing" : ""}${started ? " is-started" : ""}${credits ? " is-credits" : ""}`}>
+    <section ref={root} className={`player${playing ? " is-playing" : ""}${started ? " is-started" : ""}${credits ? " is-credits" : ""}${vimeoOn ? " is-vimeo" : ""}`}>
       <video
         ref={video}
         className="player__video"
-        src={p.video}
+        src={vimeoSrc ? p.preview : p.video}
         poster={p.poster}
         loop
         playsInline
+        muted={!!vimeoSrc}
+        autoPlay={!!vimeoSrc}
         preload="auto"
         onPlay={() => {
+          if (vimeoSrc) return; // background preview, not the film
           setPlaying(true);
           setStarted(true);
         }}
@@ -106,7 +121,16 @@ export default function ProjectPlayer({ project: p }: { project: Project }) {
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
       />
-      <CursorLabel ref={label} text={playing ? "pause" : "play"} visible={hover && !credits} />
+      <CursorLabel ref={label} text={playing ? "pause" : "play"} visible={hover && !credits && !vimeoOn} />
+
+      {vimeoOn && vimeoSrc && (
+        <div className="player__vimeo">
+          <iframe src={vimeoSrc} title={p.title} allow="autoplay; fullscreen; picture-in-picture; encrypted-media" allowFullScreen referrerPolicy="strict-origin-when-cross-origin" />
+          <button className="player__close bracket" onClick={() => setVimeoOn(false)}>
+            close
+          </button>
+        </div>
+      )}
 
       <div className="player__meta">
         <MetaRow project={p} as="h1" />
