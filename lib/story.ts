@@ -71,7 +71,7 @@ export const story = {
       "A few times a year we run hands-on weekend workshops for young people who want to make films but have never had access to equipment.",
       "We cover the basics of camera, light and sound, then everyone leaves having shot and cut a short piece of their own.",
     ],
-    image: asset("/media/kensington.jpg"),
+    image: asset("/media/awe-programme.jpg"),
     side: "right",
     ctas: [{ label: "Get in touch", href: "mailto:" }],
   } satisfies Chapter,

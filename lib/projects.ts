@@ -35,8 +35,8 @@ type Base = Omit<Project, "poster" | "preview" | "video">;
 const base: Base[] = [
   { slug: "fight-film", title: "Fight Film", category: "Sport", duration: "00:46" },
   { slug: "southern-invasion", title: "Southern Invasion", category: "Sport", duration: "00:52", vimeo: "1248380868" },
-  { slug: "bai-world-kitchen", title: "Bai World Kitchen", client: "Shopee", category: "Documentary", duration: "05:00" },
-  { slug: "awe-programme", title: "AWE Programme", client: "NUS", category: "Documentary", duration: "05:58" },
+  { slug: "bai-world-kitchen", title: "Bai World Kitchen", client: "Shopee", category: "Documentary", duration: "05:00", vimeo: "1248420591" },
+  { slug: "awe-programme", title: "AWE Programme", client: "NUS", category: "Documentary", duration: "05:58", vimeo: "1248420320" },
   { slug: "allianz-cyber-protect", title: "360 Cyber Protect", client: "Allianz", category: "Documentary", duration: "03:09", vimeo: "1248379783" },
   { slug: "banking-circle-interview", title: "Banking Circle Interview", client: "Banking Circle", category: "Documentary", duration: "01:19", vimeo: "1248379781" },
   { slug: "raya-abang-garang", title: "3 Abang Garang", client: "Shopee", category: "Commercial", duration: "06:44", vimeo: "1248379848" },
@@ -44,9 +44,8 @@ const base: Base[] = [
   { slug: "celine", title: "Celine", category: "Commercial", duration: "00:39", vimeo: "1248379780" },
   { slug: "sans-and-sans", title: "Sans & Sans", category: "Commercial", duration: "00:50", vimeo: "1248379782" },
   { slug: "volvo-s60", title: "S60 R-Design", client: "Volvo", category: "Commercial", duration: "01:46", vimeo: "1248379889" },
-  { slug: "kensington", title: "Kensington", category: "Documentary", duration: "04:24" },
-  { slug: "tian-si-jewellery", title: "Tian Si Jewellery", category: "Commercial", duration: "00:30" },
-  { slug: "genting-skyworlds", title: "SkyWorlds & Skytropolis", client: "Shopee", category: "Commercial", duration: "02:57" },
+  { slug: "tian-si-jewellery", title: "Tian Si Jewellery", category: "Commercial", duration: "00:30", vimeo: "1248419324" },
+  { slug: "genting-skyworlds", title: "SkyWorlds & Skytropolis", client: "Shopee", category: "Commercial", duration: "02:57", vimeo: "1248420592" },
   { slug: "token2049", title: "Token2049 Highlights", client: "Token2049", category: "Event", duration: "01:27", vimeo: "1248379843" },
   { slug: "bc-now", title: "BC Now", client: "Banking Circle", category: "Motion", duration: "00:39", vimeo: "1248380443" },
 ];
