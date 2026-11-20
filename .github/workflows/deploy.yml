@@ -28,8 +28,9 @@ jobs:
       - name: Build static export
         run: npm run build
         env:
-          # The site lives at https://<user>.github.io/<repo>/, so every path needs the repo name in front
-          NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
+          # Served from the root of the custom domain (wearethunderheads.com), so no path prefix.
+          # Without a custom domain the site would live at /<repo>/ and this would need to be "/${{ github.event.repository.name }}".
+          NEXT_PUBLIC_BASE_PATH: ""
       - run: touch out/.nojekyll
       - uses: actions/upload-pages-artifact@v3
         with:
