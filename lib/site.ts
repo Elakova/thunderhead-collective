@@ -6,7 +6,7 @@ export const site = {
   description: "Director & cinematographer — films, commercials and music videos.",
   timezone: "Asia/Singapore", // IANA zone shown in the header clock
   location: "Singapore", // shown at the bottom of the menu
-  email: "chrishor988@gmail.com",
+  email: "hello@wearethunderheads.com",
   phone: "", // leave empty to hide the phone number everywhere
   socials: [
     { label: "instagram", href: "https://instagram.com/" },
