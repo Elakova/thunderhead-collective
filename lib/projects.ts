@@ -35,6 +35,7 @@ type Base = Omit<Project, "poster" | "preview" | "video">;
 const base: Base[] = [
   { slug: "fight-film", title: "Fight Film", category: "Sport", duration: "00:46" },
   { slug: "southern-invasion", title: "Southern Invasion", category: "Sport", duration: "00:52", vimeo: "1248380868" },
+  { slug: "mandai-snowflake", title: "Accelerating Animal Care", client: "Snowflake", category: "Documentary", duration: "03:20", vimeo: "1249239879" },
   { slug: "bai-world-kitchen", title: "Bai World Kitchen", client: "Shopee", category: "Documentary", duration: "05:00", vimeo: "1248420591" },
   { slug: "awe-programme", title: "AWE Programme", client: "NUS", category: "Documentary", duration: "05:58", vimeo: "1248420320" },
   { slug: "allianz-cyber-protect", title: "360 Cyber Protect", client: "Allianz", category: "Documentary", duration: "03:09", vimeo: "1248379783" },
