@@ -33,7 +33,7 @@ type Base = Omit<Project, "poster" | "preview" | "video">;
 
 // Order here = order on the home reel and work pages.
 const base: Base[] = [
-  { slug: "thunderhead-collective", title: "Thunderhead Collective", agency: "Showreel", category: "Sport", duration: "00:34" },
+  { slug: "thunderhead-collective", title: "Thunderhead Collective", agency: "Showreel", category: "Sport", duration: "00:28" },
   { slug: "southern-invasion", title: "Southern Invasion", category: "Sport", duration: "00:52", vimeo: "1248380868" },
   { slug: "mandai-snowflake", title: "Accelerating Animal Care", client: "Snowflake", category: "Documentary", duration: "03:20", vimeo: "1249239879" },
   { slug: "bai-world-kitchen", title: "Bai World Kitchen", client: "Shopee", category: "Documentary", duration: "05:00", vimeo: "1248420591" },
