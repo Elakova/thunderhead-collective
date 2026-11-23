@@ -20,7 +20,7 @@ export default function JournalIndex({ posts }: { posts: Post[] }) {
     <main className="journal">
       <header className="journal__head">
         <h1 className="sans">Journal</h1>
-        <p>Notes from set. Behind every frame.</p>
+        <p>Thinking on film, startups and ideas.</p>
       </header>
 
       <Link href={`/journal/${featured.slug}`} className="featured">
