@@ -16,7 +16,6 @@ export type Post = {
   slug: string;
   title: string;
   category: JournalCategory;
-  date: string; // ISO yyyy-mm-dd
   excerpt: string;
   cover: string;
   featured?: boolean;
@@ -32,7 +31,6 @@ const posts: Omit<Post, "cover">[] = [
     slug: "collective-not-production-house",
     title: "Why we built a collective, not a production house",
     category: "Agency",
-    date: "2026-11-20",
     featured: true,
     excerpt: "No fixed headcount, no overheads to feed, and the right crew for every job. How we're set up, and why it makes better films.",
     body: [
@@ -53,7 +51,6 @@ const posts: Omit<Post, "cover">[] = [
     slug: "startup-first-brand-film",
     title: "Your first brand film: what a startup actually needs",
     category: "Startups",
-    date: "2026-11-12",
     excerpt: "Not a sizzle reel, not a 30-second ad. The one film an early-stage company should make first, and how to brief it.",
     body: [
       { type: "p", text: "Most founders come to us asking for an \"explainer\" or a \"hype video\". Usually what they need is simpler and much more useful: a short film that shows who's behind the company and why they're doing it." },
@@ -70,7 +67,6 @@ const posts: Omit<Post, "cover">[] = [
     slug: "testing-ideas",
     title: "Ideas are cheap. Here's how we test ours",
     category: "Ideation",
-    date: "2026-11-04",
     excerpt: "Every pitch starts with too many ideas. Four questions we use to kill most of them before a client ever sees them.",
     body: [
       { type: "p", text: "Coming up with ideas isn't the hard part. A good session leaves us with twenty. The hard part is knowing which two deserve a client's money, so every idea goes through the same four questions before it leaves the room." },
@@ -91,14 +87,13 @@ const posts: Omit<Post, "cover">[] = [
     slug: "pre-production",
     title: "Pre-production is where films are won",
     category: "Process",
-    date: "2026-10-28",
     excerpt: "The shoot day gets the attention, but the film is decided weeks earlier. What we lock down before a camera comes out of its case.",
     body: [
       { type: "p", text: "Clients often see the shoot day as the main event. For us, it's mostly execution. By the time we roll, the important decisions should already be made." },
       { type: "h2", text: "What we lock before the shoot" },
       { type: "p", text: "The one-line idea, agreed in writing. The audience and where they'll watch: phone, cinema screen or conference hall. A shot list ranked by priority, so we know what to drop if the day runs short. Every location scouted at the hour we'll shoot it. And a plan B for anything outdoors." },
       { type: "p", text: "For documentary and sport, add one more: time with the people on camera before the camera is there. The trust you build in that conversation shows up in every frame." },
-      img("cedar-forest", "Japan, 2026."),
+      img("cedar-forest", "Japan."),
       { type: "quote", text: "Every hour of prep saves three on set and five in the edit." },
       { type: "h2", text: "Why it saves money" },
       { type: "p", text: "Shoot days are the most expensive days in any production: crew, kit, locations and talent all on the clock at once. Prep is cheap. It's just a few of us with a calendar and a map. Moving problems from the shoot day into prep is the single best way to protect a budget." },
@@ -108,7 +103,6 @@ const posts: Omit<Post, "cover">[] = [
     slug: "video-on-a-seed-budget",
     title: "Video on a seed budget: spend where it shows",
     category: "Startups",
-    date: "2026-10-20",
     excerpt: "When every dollar counts, production value isn't about more kit. Where we put a small budget, and where we cut.",
     body: [
       { type: "p", text: "Early-stage companies rarely have big video budgets, and they shouldn't. The good news is that what makes a film feel expensive is rarely the camera." },
@@ -126,7 +120,6 @@ const posts: Omit<Post, "cover">[] = [
     slug: "the-brief-behind-the-brief",
     title: "The brief behind the brief",
     category: "Ideation",
-    date: "2026-10-12",
     excerpt: "Clients ask for a video. What they need is a result. How we get from one to the other in the first conversation.",
     body: [
       { type: "p", text: "\"We need a 60-second video for our launch.\" That's a format, not a brief. Before we talk about cameras or concepts, we try to find the business problem the video is meant to solve." },
@@ -142,7 +135,6 @@ const posts: Omit<Post, "cover">[] = [
     slug: "documentary-thinking",
     title: "Documentary thinking for brand stories",
     category: "Process",
-    date: "2026-10-04",
     excerpt: "Scripts make brands sound like brands. What changes when you approach a commercial project the way you'd approach a documentary.",
     body: [
       { type: "p", text: "Most brand videos are written first and filmed second. The script is approved, then people on camera are asked to say it convincingly. It rarely works, because real people aren't actors and audiences can tell." },
@@ -159,11 +151,10 @@ const posts: Omit<Post, "cover">[] = [
     slug: "one-shoot-many-assets",
     title: "One shoot, many assets",
     category: "Notes",
-    date: "2026-09-26",
     excerpt: "A hero film is only the beginning. How we plan a single production day so it keeps paying off for months.",
     body: [
       { type: "p", text: "Most brands commission one video and then wonder why their channels go quiet a week later. The shoot day is the most expensive part of any production, so we plan every one to deliver far more than a single film." },
-      img("midday-stop", "Japan, 2026."),
+      img("midday-stop", "Japan."),
       { type: "h2", text: "Plan the whole family" },
       { type: "p", text: "Before the shoot we map everything the footage needs to become: the hero film, a 30-second cutdown, vertical edits for social, stills for press and the website, and a set of clean B-roll the client can use for the rest of the year." },
       img("unzen-hillside", "Unzen, Japan."),
@@ -176,13 +167,9 @@ const posts: Omit<Post, "cover">[] = [
 ];
 
 export const journal: Post[] = posts
-  .map((p) => ({ ...p, cover: cover(p.slug) }))
-  .sort((a, b) => b.date.localeCompare(a.date));
+  .map((p) => ({ ...p, cover: cover(p.slug) })); // shown in the order listed above
 
 export const getPost = (slug: string) => journal.find((p) => p.slug === slug);
-
-export const formatDate = (iso: string) =>
-  new Date(`${iso}T00:00:00`).toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" });
 
 export const readingTime = (post: Post) => {
   const words = post.body.reduce((n, b) => n + ("text" in b ? b.text.split(/\s+/).length : 0), post.excerpt.split(/\s+/).length);

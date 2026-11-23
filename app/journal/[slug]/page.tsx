@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Footer from "@/components/Footer";
 import { PostCard } from "@/components/JournalIndex";
-import { formatDate, getPost, journal, readingTime } from "@/lib/journal";
+import { getPost, journal, readingTime } from "@/lib/journal";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -33,7 +33,7 @@ export default async function PostPage({ params }: Props) {
             journal
           </Link>
           <p className="eyebrow">
-            {post.category} · {formatDate(post.date)} · {readingTime(post)} min read
+            {post.category} · {readingTime(post)} min read
           </p>
           <h1 className="article__title sans">{post.title}</h1>
           <p className="article__lede">{post.excerpt}</p>

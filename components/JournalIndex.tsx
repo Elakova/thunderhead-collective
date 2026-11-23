@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { formatDate, journalCategories, type JournalCategory, type Post } from "@/lib/journal";
+import { journalCategories, type JournalCategory, type Post } from "@/lib/journal";
 import Reveal from "./Reveal";
 
 const PAGE = 6;
@@ -81,7 +81,7 @@ export function PostCard({ post: p }: { post: Post }) {
         <img src={p.cover} alt="" loading="lazy" />
       </div>
       <p className="eyebrow">
-        {p.category} <span className="post-card__date">· {formatDate(p.date)}</span>
+        {p.category}
       </p>
       <h3 className="post-card__title sans">{p.title}</h3>
     </Link>
